@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 class ItemList extends Component {
   handleRemove = event => {
     //TODO consider a confirmation before removing item
-    this.props.removeItem(event.currentTarget.attributes.dataid.value);
+    this.props.removeItem(Number(event.currentTarget.attributes.dataid.value));
   };
 
   render() {
