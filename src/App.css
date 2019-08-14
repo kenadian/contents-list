@@ -1,10 +1,217 @@
-.App {
+/*Google Pixel 2 */
+@media screen and (device-width: 411px) and (device-height: 731px) {
+  body {
+    font-size: 14px;
+  }
+  .input-form {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+  }
+  .category-total {
+    font-size: 1.3rem;
+  }
+  .category-name {
+    font-size: 1.3rem;
+  }
+  .field-label {
+    font-size: 0.75rem;
+    line-height: 1.25rem;
+  }
+  .item-container {
+    margin-left: 10px;
+  }
+  .title-container {
+    align-items: center;
+  }
+  .total-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+@media screen and (min-width: 412px) {
+  body {
+    font-size: 16px;
+  }
+  .input-form {
+    display: flex;
+    justify-content: space-between;
+  }
+  .title-container {
+    max-width: 1000px;
+    align-items: flex-start;
+  }
+  .inputs-container {
+    max-width: 900px;
+    margin: 30px 0;
+  }
+  .itemlist-container {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    justify-items: flex-start;
+    align-items: center;
+    padding: 15px 0;
+  }
+  .category-total {
+    font-size: 1.9rem;
+  }
+  .category-name {
+    font-size: 1.9rem;
+  }
+  .field-label {
+    font-size: 1rem;
+    line-height: 1.65rem;
+  }
+  .item-container {
+    margin-left: 30px;
+    align-items: center;
+  }
+  .item-container:hover {
+    background-color: #e8e8e8;
+  }
+
+  .item-remove-btn {
+    font-size: 1.3rem;
+    margin-left: 1rem;
+    background-color: #ffffff;
+    border: none;
+  }
+  .contents-list {
+    margin-bottom: 20px;
+  }
+  .total-container {
+    font-size: 2rem;
+    display: flex;
+    align-items: flex-end;
+  }
 }
 body {
-  font-size: 0.8rem;
   line-height: 1.4;
   font-family: "Roboto", sans-serif;
 }
+.App {
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100%;
+  padding-bottom: 50px;
+}
+.navbar {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100vw;
+  height: 85px;
+  box-shadow: 0px -8px 15px rgb(76, 76, 78);
+}
+.title-container {
+  display: flex;
+  justify-items: flex-start;
+  width: 90vw;
+  padding: 15px 0;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5cba47;
+  flex: 1;
+}
+.inputs-container {
+  flex: 1;
+  align-items: center;
+  width: 90vw;
+  /* max-width: 400px; */
+}
+/* .input-form {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+} */
+.contents-category {
+  flex: 1;
+  order: 1;
+  align-self: stretch;
+  border-width: 1px;
+  border-color: grey;
+  font-size: 16px;
+  padding: 5px;
+  -webkit-appearance: button;
+  -moz-appearance: button;
+}
+
+.contents-itemname {
+  flex: 1;
+  align-self: stretch;
+  border-width: 1px;
+  border-color: rgb(77, 77, 79);
+  font-size: 16px;
+  padding: 5px;
+  order: 3;
+}
+.contents-amount {
+  flex: 1;
+  align-self: stretch;
+  border-width: 1px;
+  border-color: rgb(77, 77, 79);
+  font-size: 16px;
+  padding: 5px;
+  order: 5;
+}
+
+.contents-add {
+  flex: 1;
+  align-self: stretch;
+  border-width: 1px;
+  background: #5cba47;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 10px;
+  color: white;
+  order: 6;
+}
+.category-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90vw;
+  font-size: 14px;
+  padding: 20px 0 5px 0;
+  margin-bottom: 10px;
+  border-bottom-width: 1px;
+  border-bottom-color: #5cba4780;
+  border-bottom-style: solid;
+  max-width: 1000px;
+}
+.category-name {
+  font-weight: bold;
+  color: #5cba47;
+}
+
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+}
+
+.item-name {
+  flex: 1;
+}
+.item-amount {
+  flex: 0;
+}
+
+.item-remove-btn {
+  flex: 0 1 0%;
+  color: rgb(220, 20, 60);
+}
+
 *,
 *:before,
 *:after {
@@ -17,19 +224,17 @@ h1 {
   color: #5cba47;
   font-family: "Roboto", sans-serif;
 }
-.title {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #5cba47;
-  flex: 1;
-}
+
 .field-label {
   font-family: "Roboto", sans-serif;
-  font-size: 0.75rem;
-  line-height: 1.25rem;
-  color: #7b7b7b;
+  /* font-size: 0.75rem; */
+  /* line-height: 1.25rem; */
+  color: #000000;
 }
 .field-label-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
 }
 .Title {
   width: 100vw;

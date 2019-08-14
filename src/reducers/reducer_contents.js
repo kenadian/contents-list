@@ -98,7 +98,7 @@ export default function(state = initialState, action) {
       ]);
       newState.total -= removeAmount;
       newState.entities.items.allIds = newState.entities.items.allIds.filter(
-        element => element != removeItemId
+        element => element !== removeItemId
       );
       const updateCategoryId =
         newState.entities.categoryItems.byId[removeItemId].categoryId;
@@ -112,7 +112,7 @@ export default function(state = initialState, action) {
         removeItemId
       ]);
       newState.entities.categoryItems.allIds = newState.entities.categoryItems.allIds.filter(
-        element => element != removeItemId
+        element => element !== removeItemId
       );
 
       //   const items = state.entities.items;

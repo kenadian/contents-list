@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Currency({ value }) {
   //Convert to whole dollars
   const newNumber = Math.trunc(value);
