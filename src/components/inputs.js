@@ -55,6 +55,7 @@ class Inputs extends Component {
             id="name"
             name="name"
             type="text"
+            autoFocus
             value={this.state.name}
             onChange={this.handleInputChange}
           />
