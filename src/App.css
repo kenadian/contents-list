@@ -3,11 +3,44 @@
   body {
     font-size: 14px;
   }
+  .field-helper-text {
+    display: none;
+  }
+  /* Bottom fields*/
   .input-form {
+    display: flex;
+    justify-content: space-around;
+  }
+  .field-category {
+    flex: 0 1 25%;
+    order: 2;
+    width: 20vw;
+  }
+  .field-name {
+    flex: 0 1 25%;
+    width: 34vw;
+    order: 2;
+  }
+  .field-amount {
+    flex: 0 1 16%;
+    order: 3;
+    width: 16vw;
+  }
+  .contents-add {
+    flex: 0 0 15%;
+    order: 3;
+    width: 15vw;
+  }
+  .inputs-container {
+    position: fixed;
+    bottom: 0;
+  }
+  /* .input-form {
     display: flex;
     flex-direction: column;
     align-content: flex-start;
-  }
+  } */
+  /* End Bottom Fields */
   .category-total {
     font-size: 1.3rem;
   }
@@ -31,6 +64,18 @@
   }
 }
 @media screen and (min-width: 412px) {
+  /* Bottom Fields */
+  .contents-add {
+    width: 10%;
+  }
+  .field-helper-text {
+    display: inline-block;
+    font-size: 0.7rem;
+  }
+  .field-label-container {
+    width: 25%;
+  }
+  /* End Bottom Fields */
   body {
     font-size: 16px;
   }
@@ -87,8 +132,19 @@
     align-items: flex-end;
   }
 }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
 body {
-  line-height: 1.4;
+  line-height: 1.4rem;
   font-family: "Roboto", sans-serif;
 }
 .App {
@@ -122,23 +178,24 @@ body {
   color: #5cba47;
   flex: 1;
 }
+/* Bottom fields*/
+
 .inputs-container {
-  flex: 1;
+  align-items: center;
+  width: 100vw;
+}
+
+/* .inputs-container {
   align-items: center;
   width: 90vw;
-  /* max-width: 400px; */
-}
-/* .input-form {
-  display: flex;
-  flex-direction: column;
-  align-content: flex-start;
 } */
+/* End Bottom Fields */
 .contents-category {
   flex: 1;
   order: 1;
   align-self: stretch;
   border-width: 1px;
-  border-color: grey;
+  border-color: rgb(77, 77, 79);
   font-size: 16px;
   padding: 5px;
   -webkit-appearance: button;
@@ -163,8 +220,19 @@ body {
   padding: 5px;
   order: 5;
 }
+/* Bottom Fields */
 
 .contents-add {
+  align-self: center;
+  border-width: 1px;
+  background: #5cba47;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 5px;
+  margin-top: 10px;
+  color: white;
+}
+/* .contents-add {
   flex: 1;
   align-self: stretch;
   border-width: 1px;
@@ -175,7 +243,8 @@ body {
   margin-top: 10px;
   color: white;
   order: 6;
-}
+} */
+/* End Bottom Fields */
 .category-title {
   display: flex;
   justify-content: space-between;
@@ -185,7 +254,7 @@ body {
   padding: 20px 0 5px 0;
   margin-bottom: 10px;
   border-bottom-width: 1px;
-  border-bottom-color: #5cba4780;
+  border-bottom-color: #5cba47;
   border-bottom-style: solid;
   max-width: 1000px;
 }
@@ -212,12 +281,6 @@ body {
   color: rgb(220, 20, 60);
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-}
-
 h1 {
   font-size: 2rem;
   text-align: center;
@@ -231,16 +294,19 @@ h1 {
   /* line-height: 1.25rem; */
   color: #000000;
 }
+
 .field-label-container {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
+
 .Title {
   width: 100vw;
   top: 0;
   height: 50px;
 }
+
 .logo {
   background-image: url(/images/primary_small.svg);
   cursor: pointer;
@@ -251,6 +317,7 @@ h1 {
   background-repeat: no-repeat;
   margin-left: 15px;
 }
+
 .login {
   cursor: pointer;
   background-image: url(/images/accountlogin.svg);
@@ -259,6 +326,7 @@ h1 {
   height: 40px;
   margin-right: 15px;
 }
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
@@ -278,13 +346,4 @@ h1 {
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
