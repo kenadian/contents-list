@@ -10,8 +10,7 @@ const Total = props => {
 
   return (
     <div className="total-container">
-      <div>Total Contents </div>
-
+      Total Contents
       <div>
         &nbsp; <Currency value={props.total} />
       </div>
