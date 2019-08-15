@@ -1,6 +1,4 @@
 export default function Currency({ value }) {
-  //Convert to whole dollars
-  const newNumber = Math.trunc(value);
   //Add thousand separators and currency symbol
   return (
     "$" +
