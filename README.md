@@ -1,6 +1,4 @@
-# Project Title
-
-Renters Contents App
+# Renters Contents App
 
 ## Built With
 
