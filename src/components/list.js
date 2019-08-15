@@ -34,6 +34,7 @@ class ItemList extends Component {
               if (value.categoryId === id) {
                 return true;
               }
+              return false;
             })
             .map((item, index) => {
               return (
@@ -69,6 +70,7 @@ ItemList.propTypes = {
   categoryIds: PropTypes.array,
   items: PropTypes.object
 };
+
 function mapStateToProps(state) {
   return {
     categoryItems: Object.values(state.content.entities.categoryItems.byId),
@@ -77,6 +79,7 @@ function mapStateToProps(state) {
     items: state.content.entities.items.byId
   };
 }
+
 export default connect(
   mapStateToProps,
   { removeItem }
