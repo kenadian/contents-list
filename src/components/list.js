@@ -14,6 +14,9 @@ class ItemList extends Component {
       return (
         <div className="contents-list" key={id}>
           {//Show the category name if it has any items
+          // if the item has a zero amount, then the total can be 0.
+          // A user might want to put items in and then lookup values later.
+          // Currently amount field won't accept 0 as a value.
           this.props.category[id].total > 0 ||
           this.props.categoryItems.filter(value => {
             return value.categoryId === id;
@@ -28,9 +31,9 @@ class ItemList extends Component {
             </div>
           ) : null}
 
-          {this.props.categoryItems
+          {//Show items from the current category
+          this.props.categoryItems
             .filter(value => {
-              //Show items from the current category
               if (value.categoryId === id) {
                 return true;
               }
