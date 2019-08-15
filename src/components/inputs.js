@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addItem } from "../actions/contents";
-
+import PropTypes from "prop-types";
 class Inputs extends Component {
   constructor(props) {
     super(props);
@@ -11,7 +11,10 @@ class Inputs extends Component {
   handleSubmit = event => {
     // check that the form values exist and dispatch action to add to store
     if (this.state.name && this.state.categoryId && this.state.amount) {
-      this.props.addItem(this.state);
+      this.props.addItem({
+        ...this.state,
+        amount: Math.round(this.state.amount)
+      });
       // TODO is it better to leave the category set to the last value
       // or set it to "Select Category ...". Discuss.
       this.setState({ amount: 0, categoryId: 0, name: "" });
@@ -118,6 +121,11 @@ class Inputs extends Component {
     );
   }
 }
+
+Inputs.propTypes = {
+  addItem: PropTypes.func,
+  total: PropTypes.number
+};
 
 function mapStateToProps(state) {
   return { total: state.total };
