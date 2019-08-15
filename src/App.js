@@ -4,7 +4,6 @@ import "./App.css";
 import Inputs from "./components/inputs";
 import ItemList from "./components/list";
 import Currency from "./components/currency";
-import styled from "styled-components";
 
 const Total = props => {
   // if (props.total > 0) {
