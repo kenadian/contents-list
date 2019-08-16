@@ -3,6 +3,17 @@
   body {
     font-size: 14px;
   }
+  .App {
+    overflow-y: scroll;
+  }
+
+  .itemlist-container {
+    position: absolute;
+    top: 170px;
+    overflow-y: scroll;
+    height: 484px;
+    padding-bottom: 60px;
+  }
   .field-helper-text {
     display: none;
   }
@@ -10,6 +21,8 @@
   .input-form {
     display: flex;
     justify-content: space-around;
+    align-items: flex-end;
+    height: 100%;
   }
   .field-category {
     flex: 0 1 25%;
@@ -26,14 +39,44 @@
     order: 3;
     width: 16vw;
   }
+
   .contents-add {
-    flex: 0 0 15%;
+    align-self: flex-end;
+    font-size: 1rem;
     order: 3;
-    width: 15vw;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: white;
+    flex: 0 0 20%;
   }
   .inputs-container {
     position: fixed;
     bottom: 0;
+    z-index: 999;
+    height: 90px;
+    background-color: white;
+    background: -moz-linear-gradient(
+      top,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.2) 1%,
+      rgba(255, 255, 255, 0.8) 27%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      top,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.2) 1%,
+      rgba(255, 255, 255, 0.8) 27%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0.2) 1%,
+      rgba(255, 255, 255, 0.8) 27%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', endColorstr='#ffffff',GradientType=0 );
   }
   /* .input-form {
     display: flex;
@@ -51,9 +94,7 @@
     font-size: 0.75rem;
     line-height: 1.25rem;
   }
-  .item-container {
-    margin-left: 10px;
-  }
+
   .title-container {
     align-items: center;
   }
@@ -66,7 +107,11 @@
 @media screen and (min-width: 412px) {
   /* Bottom Fields */
   .contents-add {
+    align-self: center;
     width: 10%;
+    font-size: 1.3rem;
+    padding: 5px;
+    margin-top: 10px;
   }
   .field-helper-text {
     display: inline-block;
@@ -82,14 +127,21 @@
   .input-form {
     display: flex;
     justify-content: space-between;
+    max-width: 916px;
+    width: 100vw;
   }
   .title-container {
     max-width: 1000px;
     align-items: flex-start;
   }
   .inputs-container {
-    max-width: 900px;
-    margin: 30px 0;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    top: 142px;
+    /* max-width: 910px; */
+    padding: 30px 0;
+    background-color: white;
   }
   .itemlist-container {
     display: flex;
@@ -98,6 +150,9 @@
     justify-items: flex-start;
     align-items: center;
     padding: 15px 0;
+    position: absolute;
+    top: 260px;
+    z-index: -9999;
   }
   .category-total {
     font-size: 1.9rem;
@@ -123,9 +178,7 @@
     background-color: #ffffff;
     border: none;
   }
-  .contents-list {
-    margin-bottom: 20px;
-  }
+
   .total-container {
     font-size: 2rem;
     display: flex;
@@ -157,19 +210,25 @@ body {
   padding-bottom: 50px;
 }
 .navbar {
+  position: fixed;
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100vw;
   height: 85px;
+  background-color: #ffffff;
   box-shadow: 0px -8px 15px rgb(76, 76, 78);
+  z-index: 1000;
 }
 .title-container {
   display: flex;
   justify-items: flex-start;
+  position: fixed;
+  top: 84px;
   width: 90vw;
-  padding: 15px 0;
+  padding: 35px 0 15px 0;
+  background-color: white;
 }
 
 .title {
@@ -190,6 +249,9 @@ body {
   width: 90vw;
 } */
 /* End Bottom Fields */
+.contents-list {
+  margin-bottom: 20px;
+}
 .contents-category {
   flex: 1;
   order: 1;
@@ -223,13 +285,11 @@ body {
 /* Bottom Fields */
 
 .contents-add {
-  align-self: center;
   border-width: 1px;
   background: #5cba47;
-  font-size: 1.3rem;
+
   font-weight: bold;
-  padding: 5px;
-  margin-top: 10px;
+
   color: white;
 }
 /* .contents-add {
@@ -251,13 +311,14 @@ body {
   align-items: center;
   width: 90vw;
   font-size: 14px;
-  padding: 20px 0 5px 0;
+  padding: 0px 0 5px 0;
   margin-bottom: 10px;
   border-bottom-width: 1px;
   border-bottom-color: #5cba47;
   border-bottom-style: solid;
   max-width: 1000px;
 }
+
 .category-name {
   font-weight: bold;
   color: #5cba47;
