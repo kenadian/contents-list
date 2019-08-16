@@ -1,28 +1,26 @@
-/*Google Pixel 2 */
 @media screen and (device-width: 411px) and (device-height: 731px) {
+  /*Google Pixel 2 */
   body {
     font-size: 14px;
   }
   .App {
     overflow-y: scroll;
   }
-
   .itemlist-container {
-    position: absolute;
-    top: 170px;
+    height: 489px;
     overflow-y: scroll;
-    height: 484px;
     padding-bottom: 60px;
+    position: fixed;
+    top: 180px;
   }
   .field-helper-text {
     display: none;
   }
-  /* Bottom fields*/
   .input-form {
-    display: flex;
-    justify-content: space-around;
     align-items: flex-end;
+    display: flex;
     height: 100%;
+    justify-content: space-around;
   }
   .field-category {
     flex: 0 1 25%;
@@ -39,7 +37,6 @@
     order: 3;
     width: 16vw;
   }
-
   .contents-add {
     align-self: flex-end;
     font-size: 1rem;
@@ -78,18 +75,11 @@
     );
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', endColorstr='#ffffff',GradientType=0 );
   }
-  /* .input-form {
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
-  } */
-  /* End Bottom Fields */
-  .category-total {
+
+  .category-title {
     font-size: 1.3rem;
   }
-  .category-name {
-    font-size: 1.3rem;
-  }
+
   .field-label {
     font-size: 0.75rem;
     line-height: 1.25rem;
@@ -104,23 +94,21 @@
     align-items: flex-end;
   }
 }
+/* 
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 @media screen and (min-width: 412px) {
-  /* Bottom Fields */
-  .contents-add {
-    align-self: center;
-    width: 10%;
-    font-size: 1.3rem;
-    padding: 5px;
-    margin-top: 10px;
-  }
-  .field-helper-text {
-    display: inline-block;
-    font-size: 0.7rem;
-  }
-  .field-label-container {
-    width: 25%;
-  }
-  /* End Bottom Fields */
   body {
     font-size: 16px;
   }
@@ -139,10 +127,24 @@
     justify-content: space-around;
     position: fixed;
     top: 142px;
-    /* max-width: 910px; */
     padding: 30px 0;
     background-color: white;
   }
+  .field-helper-text {
+    display: inline-block;
+    font-size: 0.7rem;
+  }
+  .field-label-container {
+    width: 25%;
+  }
+  .contents-add {
+    align-self: center;
+    width: 10%;
+    font-size: 1.3rem;
+    padding: 5px;
+    margin-top: 10px;
+  }
+
   .itemlist-container {
     display: flex;
     flex-direction: column;
@@ -154,14 +156,10 @@
     top: 260px;
     z-index: -9999;
   }
-  .category-total {
-    font-size: 1.9rem;
-  }
-  .category-name {
+  .category-title {
     font-size: 1.9rem;
   }
   .field-label {
-    font-size: 1rem;
     line-height: 1.65rem;
   }
   .item-container {
@@ -174,7 +172,7 @@
 
   .item-remove-btn {
     font-size: 1.3rem;
-    margin-left: 1rem;
+    margin-left: 16px;
     background-color: #ffffff;
     border: none;
   }
@@ -185,7 +183,22 @@
     align-items: flex-end;
   }
 }
+/* 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
 *,
 *:before,
 *:after {
@@ -215,7 +228,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100vw;
+  width: inherit;
   height: 85px;
   background-color: #ffffff;
   box-shadow: 0px -8px 15px rgb(76, 76, 78);
@@ -237,18 +250,12 @@ body {
   color: #5cba47;
   flex: 1;
 }
-/* Bottom fields*/
 
 .inputs-container {
   align-items: center;
   width: 100vw;
 }
 
-/* .inputs-container {
-  align-items: center;
-  width: 90vw;
-} */
-/* End Bottom Fields */
 .contents-list {
   margin-bottom: 20px;
 }
@@ -258,7 +265,6 @@ body {
   align-self: stretch;
   border-width: 1px;
   border-color: rgb(77, 77, 79);
-  font-size: 16px;
   padding: 5px;
   -webkit-appearance: button;
   -moz-appearance: button;
@@ -269,7 +275,6 @@ body {
   align-self: stretch;
   border-width: 1px;
   border-color: rgb(77, 77, 79);
-  font-size: 16px;
   padding: 5px;
   order: 3;
 }
@@ -278,39 +283,22 @@ body {
   align-self: stretch;
   border-width: 1px;
   border-color: rgb(77, 77, 79);
-  font-size: 16px;
   padding: 5px;
   order: 5;
 }
-/* Bottom Fields */
 
 .contents-add {
   border-width: 1px;
-  background: #5cba47;
-
+  background: #ffc240;
   font-weight: bold;
-
   color: white;
 }
-/* .contents-add {
-  flex: 1;
-  align-self: stretch;
-  border-width: 1px;
-  background: #5cba47;
-  font-size: 1.3rem;
-  font-weight: bold;
-  padding: 5px;
-  margin-top: 10px;
-  color: white;
-  order: 6;
-} */
-/* End Bottom Fields */
+
 .category-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 90vw;
-  font-size: 14px;
   padding: 0px 0 5px 0;
   margin-bottom: 10px;
   border-bottom-width: 1px;
@@ -338,34 +326,13 @@ body {
 }
 
 .item-remove-btn {
-  flex: 0 1 0%;
   color: rgb(220, 20, 60);
-}
-
-h1 {
-  font-size: 2rem;
-  text-align: center;
-  color: #5cba47;
-  font-family: "Roboto", sans-serif;
-}
-
-.field-label {
-  font-family: "Roboto", sans-serif;
-  /* font-size: 0.75rem; */
-  /* line-height: 1.25rem; */
-  color: #000000;
 }
 
 .field-label-container {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-}
-
-.Title {
-  width: 100vw;
-  top: 0;
-  height: 50px;
 }
 
 .logo {
@@ -386,25 +353,4 @@ h1 {
   width: 40px;
   height: 40px;
   margin-right: 15px;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
