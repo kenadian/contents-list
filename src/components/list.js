@@ -10,6 +10,15 @@ class ItemList extends Component {
   };
 
   render() {
+    if (this.props.categoryItems.length === 0) {
+      return (
+        <div className="list-start-message">
+          <h1>Let's get started!</h1>
+          <p>Enter the items you want coverage for.</p>
+        </div>
+      );
+    }
+
     return this.props.categoryIds.map(id => {
       return (
         <div className="contents-list" key={id}>

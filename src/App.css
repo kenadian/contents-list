@@ -255,7 +255,9 @@ body {
   align-items: center;
   width: 100vw;
 }
-
+.list-start-message {
+  text-align: center;
+}
 .contents-list {
   margin-bottom: 20px;
 }
