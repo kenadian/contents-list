@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 import { removeItem } from "../actions/contents";
 
 import StartMessage from "./start_message";
-import Button from "./button";
 import CategoryTitle from "./category_title";
 import Item from "./item";
 
