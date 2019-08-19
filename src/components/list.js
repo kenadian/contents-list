@@ -1,22 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { removeItem } from "../actions/contents";
-import Currency from "./currency";
+
 import PropTypes from "prop-types";
+
+import { removeItem } from "../actions/contents";
+
+import StartMessage from "./start_message";
+import Button from "./button";
+import CategoryTitle from "./category_title";
+import Item from "./item";
+
 class ItemList extends Component {
   handleRemove = event => {
     //TODO consider a confirmation before removing item
-    this.props.removeItem(Number(event.currentTarget.attributes.dataid.value));
+    this.props.removeItem(Number(event.currentTarget.dataset.id));
   };
 
   render() {
     if (this.props.categoryItems.length === 0) {
-      return (
-        <div className="list-start-message">
-          <h1>Let's get started!</h1>
-          <p>Enter the items you want coverage for.</p>
-        </div>
-      );
+      return <StartMessage />;
     }
 
     return this.props.categoryIds.map(id => {
@@ -30,14 +32,10 @@ class ItemList extends Component {
           this.props.categoryItems.filter(value => {
             return value.categoryId === id;
           }).length >= 1 ? (
-            <div className="category-title">
-              <div className="category-name">
-                {this.props.category[id].name}
-              </div>
-              <div className="category-total">
-                <Currency value={this.props.category[id].total} />
-              </div>
-            </div>
+            <CategoryTitle
+              name={this.props.category[id].name}
+              total={this.props.category[id].total}
+            />
           ) : null}
 
           {//Show items from the current category
@@ -50,24 +48,14 @@ class ItemList extends Component {
             })
             .map((item, index) => {
               return (
-                <div className="item-container" key={index}>
-                  <div className="item-name">
-                    {this.props.items[item.itemId].name}
-                  </div>{" "}
-                  <div className="item-amount">
-                    <Currency value={this.props.items[item.itemId].amount} />
-                  </div>
-                  <button
-                    className="item-remove-btn"
-                    type="button"
-                    name="remove-btn"
-                    id="remove-btn"
-                    dataid={item.itemId}
-                    onClick={this.handleRemove}
-                  >
-                    Remove
-                  </button>
-                </div>
+                <Item
+                  key={index}
+                  index={index}
+                  itemId={item.itemId}
+                  handleRemove={this.handleRemove}
+                  name={this.props.items[item.itemId].name}
+                  amount={this.props.items[item.itemId].amount}
+                />
               );
             })}
         </div>

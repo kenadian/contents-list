@@ -24,3 +24,5 @@ yarn-debug.log*
 yarn-error.log*
 redux-state-shape.js
 .gitignore
+
+src/App.css

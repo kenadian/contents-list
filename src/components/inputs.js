@@ -1,7 +1,29 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addItem } from "../actions/contents";
+import styled from "styled-components";
 import PropTypes from "prop-types";
+
+import { addItem } from "../actions/contents";
+
+import Button from "./button";
+import LabelledTextField from "./labelled_text_field";
+import LabelledSelectField from "./labelled_select_field";
+import AddButton from "./add_button";
+const StyledForm = styled.form`
+  @media (device-width: 411px) and (device-height: 731px) {
+    align-items: flex-end;
+    display: flex;
+    height: 100%;
+    justify-content: space-around;
+  }
+  @media screen and (min-width: 412px) {
+    display: flex;
+    justify-content: space-between;
+    max-width: 916px;
+    width: 100vw;
+  }
+`;
+
 class Inputs extends Component {
   constructor(props) {
     super(props);
@@ -39,79 +61,46 @@ class Inputs extends Component {
 
   render() {
     return (
-      <form className="input-form">
-        <div className="field-label-container field-name">
-          <label
-            className="field-label"
-            htmlFor="name"
-            style={{
-              order: 2
-            }}
-          >
-            Name
-          </label>
-          <input
-            className="contents-itemname"
-            id="name"
-            name="name"
-            type="text"
-            autoFocus
-            value={this.state.name}
-            onChange={this.handleInputChange}
-          />
-        </div>
-        <div className="field-label-container field-category">
-          <label
-            className="field-label"
-            htmlFor="categoryId"
-            style={{
-              order: 1
-            }}
-          >
-            Category
-          </label>
-          <select
-            className="contents-category"
-            id="categoryId"
-            name="categoryId"
-            value={this.state.categoryId}
-            onChange={this.handleInputChange}
-          >
-            <option value="0">Select...</option>
-            <option value="1">Jewellery</option>
-            <option value="2">Collectibles</option>
-            <option value="3">Musical Instruments</option>
-            <option value="4">Sports Equipment</option>
-            <option value="5">Tools</option>
-          </select>
-        </div>
+      <StyledForm>
+        <LabelledTextField
+          order="1"
+          name="name"
+          id="name"
+          autofocus
+          value={this.state.name}
+          onChange={this.handleInputChange}
+        >
+          Name
+        </LabelledTextField>
 
-        <div className="field-label-container field-amount">
-          <label
-            className="field-label"
-            htmlFor="amount"
-            style={{
-              order: 4
-            }}
-          >
-            Amount{" "}
-            <span className="field-helper-text">(to nearest dollar)</span>
-          </label>
+        <LabelledSelectField
+          id="categoryId"
+          name="categoryId"
+          order="2"
+          value={this.state.categoryId}
+          onChange={this.handleInputChange}
+        >
+          Category
+        </LabelledSelectField>
 
-          <input
-            className="contents-amount"
-            name="amount"
-            id="amount"
-            type="number"
-            value={this.state.amount > 0 ? this.state.amount : ""}
-            onChange={this.handleInputChange}
-          />
-        </div>
+        <LabelledTextField
+          order="3"
+          name="amount"
+          id="amount"
+          type="number"
+          value={this.state.amount > 0 ? this.state.amount : ""}
+          onChange={this.handleInputChange}
+        >
+          Amount
+        </LabelledTextField>
 
-        <button className="contents-add" onClick={this.handleSubmit}>
+        <AddButton onClick={this.handleSubmit} order="4">
           Add
-        </button>
-      </form>
+        </AddButton>
+        {/* <Button className="contents-add" >
+          Add
+        </Button> */}
+      </StyledForm>
     );
   }
 }
