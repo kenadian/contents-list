@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 
 import { addItem } from "../actions/contents";
 
-import Button from "./button";
 import LabelledTextField from "./labelled_text_field";
 import LabelledSelectField from "./labelled_select_field";
 import AddButton from "./add_button";
+
 const StyledForm = styled.form`
   @media (device-width: 411px) and (device-height: 731px) {
     align-items: flex-end;
@@ -66,7 +66,7 @@ class Inputs extends Component {
           order="1"
           name="name"
           id="name"
-          autofocus
+          autoFocus={true}
           value={this.state.name}
           onChange={this.handleInputChange}
         >
@@ -97,9 +97,6 @@ class Inputs extends Component {
         <AddButton onClick={this.handleSubmit} order="4">
           Add
         </AddButton>
-        {/* <Button className="contents-add" >
-          Add
-        </Button> */}
       </StyledForm>
     );
   }
