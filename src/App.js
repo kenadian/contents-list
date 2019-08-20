@@ -75,30 +75,9 @@ const InputsWrapper = styled.div`
     position: fixed;
     bottom: 0;
     z-index: 999;
-    height: 90px;
+    height: 70px;
     background-color: white;
-    background: -moz-linear-gradient(
-      top,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0.2) 1%,
-      rgba(255, 255, 255, 0.8) 27%,
-      rgba(255, 255, 255, 1) 100%
-    );
-    background: -webkit-linear-gradient(
-      top,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0.2) 1%,
-      rgba(255, 255, 255, 0.8) 27%,
-      rgba(255, 255, 255, 1) 100%
-    );
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0.2) 1%,
-      rgba(255, 255, 255, 0.8) 27%,
-      rgba(255, 255, 255, 1) 100%
-    );
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33ffffff', endColorstr='#ffffff',GradientType=0 );
+    box-shadow: 0px -17px 17px 0px rgb(255, 255, 255);
   }
 
   @media (min-width: 412px) {
@@ -114,7 +93,7 @@ const InputsWrapper = styled.div`
 `;
 const ItemsWrapper = styled.div`
   @media (device-width: 411px) and (device-height: 731px) {
-    height: 489px;
+    height: 480px;
     overflow-y: scroll;
     padding-bottom: 60px;
     position: fixed;

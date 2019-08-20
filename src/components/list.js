@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import styled from "styled-components";
 
 import PropTypes from "prop-types";
 
@@ -8,6 +9,9 @@ import { removeItem } from "../actions/contents";
 import StartMessage from "./start_message";
 import CategoryTitle from "./category_title";
 import Item from "./item";
+const CategoryWrapper = styled.div`
+  margin-bottom: 20px;
+`;
 
 class ItemList extends Component {
   handleRemove = event => {
@@ -22,7 +26,7 @@ class ItemList extends Component {
 
     return this.props.categoryIds.map(id => {
       return (
-        <div className="contents-list" key={id}>
+        <CategoryWrapper key={id}>
           {//Show the category name if it has any items
           // if the item has a zero amount, then the total can be 0.
           // A user might want to put items in and then lookup values later.
@@ -57,7 +61,7 @@ class ItemList extends Component {
                 />
               );
             })}
-        </div>
+        </CategoryWrapper>
       );
     });
   }
