@@ -70,27 +70,6 @@ const Title = styled.div`
   flex: 1;
 `;
 
-const InputsWrapper = styled.div`
-  @media (device-width: 411px) and (device-height: 731px) {
-    position: fixed;
-    bottom: 0;
-    z-index: 999;
-    height: 70px;
-    background-color: white;
-    box-shadow: 0px -17px 17px 0px rgb(255, 255, 255);
-  }
-
-  @media (min-width: 412px) {
-    display: flex;
-    justify-content: space-around;
-    position: fixed;
-    top: 142px;
-    padding: 30px 0;
-    background-color: white;
-  }
-  align-items: center;
-  width: 100vw;
-`;
 const ItemsWrapper = styled.div`
   @media (device-width: 411px) and (device-height: 731px) {
     height: 480px;
@@ -123,9 +102,8 @@ class App extends Component {
           <Total total={this.props.total} />
         </TitleWrapper>
 
-        <InputsWrapper>
-          <Inputs />
-        </InputsWrapper>
+        <Inputs />
+
         <ItemsWrapper>
           <ItemList />
         </ItemsWrapper>
