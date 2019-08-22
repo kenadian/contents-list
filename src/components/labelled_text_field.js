@@ -4,8 +4,7 @@ import styled from "styled-components";
 import FieldLabel from "./field_label";
 const Wrapper = styled.div`
   @media (device-width: 411px) and (device-height: 731px) {
-    flex: 0 1 25%;
-    width: 25%;
+    width: ${props => props.width || "auto"};
     order: ${props => props.order};
   }
   @media (min-width: 412px) {
@@ -18,15 +17,13 @@ const Wrapper = styled.div`
 `;
 
 const StyledInput = styled.input`
-  flex: 1;
-  align-self: stretch;
   border-width: 1px;
   border-color: rgb(77, 77, 79);
   padding: 5px;
 `;
 function LabelledTextField(props) {
   return (
-    <Wrapper order={props.order}>
+    <Wrapper order={props.order} width={props.width}>
       <FieldLabel htmlFor={props.name}>{props.children}</FieldLabel>
       <StyledInput
         id={props.id}

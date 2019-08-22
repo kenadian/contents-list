@@ -11,17 +11,23 @@ import AddButton from "./add_button";
 
 const StyledForm = styled.form`
   @media (device-width: 411px) and (device-height: 731px) {
-    align-items: flex-end;
-    display: flex;
-    height: 100%;
-    justify-content: space-around;
+    bottom: 0;
+    z-index: 999;
+    height: 70px;
+    box-shadow: 0px -17px 17px 0px rgb(255, 255, 255);
   }
-  @media screen and (min-width: 412px) {
-    display: flex;
-    justify-content: space-between;
-    max-width: 916px;
-    width: 100vw;
+  @media (min-width: 412px) {
+    top: 142px;
+    padding: 30px 0;
   }
+  position: fixed;
+  background-color: white;
+  align-items: flex-end;
+  display: flex;
+  width: 100vw;
+  max-width: 916px;
+  width: 100vw;
+  justify-content: space-around;
 `;
 
 class Inputs extends Component {
@@ -61,9 +67,10 @@ class Inputs extends Component {
 
   render() {
     return (
-      <StyledForm>
+      <StyledForm onClick={this.handleSubmit}>
         <LabelledTextField
           order="1"
+          width="155px"
           name="name"
           id="name"
           autoFocus={true}
@@ -85,6 +92,7 @@ class Inputs extends Component {
 
         <LabelledTextField
           order="3"
+          width="70px"
           name="amount"
           id="amount"
           type="number"
@@ -94,9 +102,7 @@ class Inputs extends Component {
           Amount
         </LabelledTextField>
 
-        <AddButton onClick={this.handleSubmit} order="4">
-          Add
-        </AddButton>
+        <AddButton order="4">Add</AddButton>
       </StyledForm>
     );
   }

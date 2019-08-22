@@ -3,8 +3,7 @@ import styled from "styled-components";
 import FieldLabel from "./field_label";
 const Wrapper = styled.div`
   @media (device-width: 411px) and (device-height: 731px) {
-    flex: 0 1 25%;
-    width: 20vw;
+    width: ${props => props.width || "auto"};
     order: ${props => props.order};
   }
   @media (min-width: 412px) {
@@ -17,9 +16,8 @@ const Wrapper = styled.div`
 `;
 
 const StyledSelect = styled.select`
-  flex: 1;
   order: ${props => props.order};
-  align-self: stretch;
+
   border-width: 1px;
   border-color: rgb(77, 77, 79);
   padding: 5px;
@@ -29,7 +27,7 @@ const StyledSelect = styled.select`
 
 function LabelledSelectField(props) {
   return (
-    <Wrapper order={props.order}>
+    <Wrapper order={props.order} width={props.width}>
       <FieldLabel htmlFor="categoryId">{props.children}</FieldLabel>
       <StyledSelect
         name={props.name}
