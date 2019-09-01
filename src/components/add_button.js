@@ -25,9 +25,9 @@ function AddButton(props) {
   return (
     <StyledButton
       order={props.order}
+      onClick={props.onClick}
       name="add-btn"
       id="add-btn"
-      onClick={props.onClick}
     >
       {props.children}
     </StyledButton>
