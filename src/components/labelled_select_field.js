@@ -12,12 +12,11 @@ const Wrapper = styled.div`
 
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin: 0px 5px 10px;
 `;
 
 const StyledSelect = styled.select`
   order: ${props => props.order};
-
   border-width: 1px;
   border-color: rgb(77, 77, 79);
   padding: 5px;
