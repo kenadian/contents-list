@@ -6,7 +6,6 @@
  * @returns String
  */
 export default function Currency({ value, currencySymbol = "$" }) {
-  debugger;
   //Add thousand separators and currency symbol
   return (
     currencySymbol +
