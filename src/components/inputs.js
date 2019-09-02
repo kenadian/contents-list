@@ -24,9 +24,8 @@ const StyledForm = styled.form`
   background-color: white;
   align-items: flex-end;
   display: flex;
-  width: 100vw;
+  width: 95vw;
   max-width: 916px;
-  width: 100vw;
   justify-content: space-around;
 `;
 
