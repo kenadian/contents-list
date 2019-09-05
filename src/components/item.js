@@ -5,11 +5,12 @@ import Currency from "./currency";
 
 const Wrapper = styled.div`
   @media (min-width: 412px) {
-    margin-left: 30px;
-    align-items: center;
     :hover {
       background-color: #e8e8e8;
     }
+    margin-left: 30px;
+    align-items: center;
+    height: 30px;
   }
   display: flex;
   justify-content: space-between;
@@ -27,6 +28,7 @@ const Button = styled.button`
     margin-left: 16px;
     background-color: #ffffff;
     border: none;
+    height: 26px;
   }
   color: red;
 `;
