@@ -1,5 +1,5 @@
-import { ADD_ITEM, REMOVE_ITEM } from "../actions/contents";
-import { removeIn } from "immutable";
+import { ADD_ITEM, REMOVE_ITEM, REMOVE_ALL } from "../actions/contents";
+import Immutable, { removeIn, Set, List } from "immutable";
 
 const initialState = {
   total: 0,
@@ -30,9 +30,11 @@ function generateId(inputArray) {
   if (inputArray.length === 0) {
     return 0;
   }
+  //sort so the highest id is last
   inputArray.sort(function(a, b) {
     return a - b;
   });
+  //return highest number + 1
   return Number(inputArray.pop()) + 1;
 }
 
@@ -41,7 +43,7 @@ export default function(state = initialState, action) {
 
   switch (action.type) {
     case ADD_ITEM:
-      const { amount, categoryId, name } = payload || "";
+      const { amount, name } = payload || "";
       const items = state.entities.items;
       const itemId = generateId(state.entities.items.allIds.slice(0));
       const categoryItemsId = generateId(
@@ -57,11 +59,12 @@ export default function(state = initialState, action) {
             ...state.entities.category,
             byId: {
               ...state.entities.category.byId,
-              [categoryId]: {
-                ...state.entities.category.byId[categoryId],
+              [payload.categoryId]: {
+                ...state.entities.category.byId[payload.categoryId],
                 total:
-                  Number(state.entities.category.byId[categoryId].total) +
-                  Number(amount)
+                  Number(
+                    state.entities.category.byId[payload.categoryId].total
+                  ) + Number(amount)
               }
             }
           },
@@ -81,7 +84,7 @@ export default function(state = initialState, action) {
               [categoryItemsId]: {
                 id: categoryItemsId,
                 itemId,
-                categoryId: Number(categoryId)
+                categoryId: Number(payload.categoryId)
               }
             },
             allIds: [...state.entities.categoryItems.allIds, categoryItemsId]
@@ -133,6 +136,62 @@ export default function(state = initialState, action) {
       // return the new state object.
       // And done.
       return newState;
+
+    case REMOVE_ALL:
+      const categoryId = payload; //
+      let itemIdsToDelete = [];
+      let itemIdsToKeep = [];
+
+      // create a new state object and remove objects that will be replaced
+      // todo there is probably a more elegant way of doing this.
+      let removeAllNewState = removeIn(state, [
+        "entities",
+        "categoryItems",
+        "byId"
+      ]);
+      removeAllNewState = removeIn(removeAllNewState, [
+        "entities",
+        "categoryItems",
+        "allIds"
+      ]);
+
+      //update the total
+      removeAllNewState = Immutable.update(
+        removeAllNewState,
+        "total",
+        value => value - state.entities.category.byId[categoryId].total
+      );
+
+      //Make a map of the categoryItems.byId objects that is easy to iterate
+      const categoryItems = Immutable.Map(
+        Immutable.fromJS(state.entities.categoryItems.byId)
+      );
+
+      //Get the itemId for the items that have the categoryId that needs a deletin'
+      // and at the same time build the itemIdsToKeep to be used for the allIds array
+      categoryItems.forEach(value => {
+        if (value.get("categoryId") === categoryId) {
+          itemIdsToDelete.push(value.get("itemId").toString());
+        }
+        if (value.get("categoryId") !== categoryId) {
+          itemIdsToKeep.push(value.get("itemId"));
+        }
+      });
+      //todo adjust total
+      return Immutable.mergeDeep(removeAllNewState, {
+        entities: {
+          category: {
+            byId: {
+              [categoryId]: { total: 0 }
+            }
+          },
+          categoryItems: {
+            byId: categoryItems.deleteAll(itemIdsToDelete).toJS(),
+            allIds: itemIdsToKeep
+          }
+        }
+      });
+
     default:
       return state;
   }
