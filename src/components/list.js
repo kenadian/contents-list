@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import PropTypes from "prop-types";
 
-import { removeItem } from "../actions/contents";
+import { removeItem, removeAll } from "../actions/contents";
 
 import StartMessage from "./start_message";
 import CategoryTitle from "./category_title";
@@ -17,6 +17,10 @@ class ItemList extends Component {
   handleRemove = event => {
     //TODO consider a confirmation before removing item
     this.props.removeItem(Number(event.currentTarget.dataset.id));
+  };
+  handleRemoveAll = event => {
+    //TODO consider a confirmation before removing item
+    this.props.removeAll(Number(event.currentTarget.dataset.id));
   };
 
   render() {
@@ -36,8 +40,10 @@ class ItemList extends Component {
             return value.categoryId === id;
           }).length >= 1 ? (
             <CategoryTitle
+              dataCategoryId={id}
               name={this.props.category[id].name}
               total={this.props.category[id].total}
+              handleRemoveAll={this.handleRemoveAll}
             />
           ) : null}
 
@@ -69,6 +75,7 @@ class ItemList extends Component {
 
 ItemList.propTypes = {
   removeItem: PropTypes.func,
+  removeAll: PropTypes.func,
   categoryItems: PropTypes.array,
   categoryIds: PropTypes.array,
   items: PropTypes.object
@@ -85,5 +92,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { removeItem }
+  { removeItem, removeAll }
 )(ItemList);
