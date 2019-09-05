@@ -66,7 +66,7 @@ class Inputs extends Component {
 
   render() {
     return (
-      <StyledForm onClick={this.handleSubmit}>
+      <StyledForm onSubmit={this.handleSubmit}>
         <LabelledTextField
           order="1"
           width="155px"
