@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Currency from "./currency";
+import Button from "./button";
 
 const Wrapper = styled.div`
   display: flex;
@@ -31,6 +32,15 @@ function CategoryTitle(props) {
       <Name>{props.name}</Name>
       <div>
         <Currency value={props.total} />
+        <Button
+          //todo get this style into this button
+          // create another button
+          style={{ width: "100%", textAlign: "left" }}
+          dataid={props.dataCategoryId}
+          onClick={props.handleRemoveAll}
+        >
+          Remove all
+        </Button>
       </div>
     </Wrapper>
   );
