@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import FieldLabel from "./field_label";
+
 const Wrapper = styled.div`
   @media (device-width: 411px) and (device-height: 731px) {
     width: ${props => props.width || "auto"};
@@ -24,24 +25,32 @@ const StyledSelect = styled.select`
   -moz-appearance: button;
 `;
 
-function LabelledSelectField(props) {
+const LabelledSelectField = ({
+  order,
+  width,
+  children,
+  name,
+  id,
+  value,
+  onChange,
+  category
+}) => {
+  const categoryIds = Object.keys(category);
+
   return (
-    <Wrapper order={props.order} width={props.width}>
-      <FieldLabel htmlFor="categoryId">{props.children}</FieldLabel>
-      <StyledSelect
-        name={props.name}
-        id={props.id}
-        value={props.value}
-        onChange={props.onChange}
-      >
+    <Wrapper order={order} width={width}>
+      <FieldLabel htmlFor="categoryId">{children}</FieldLabel>
+      <StyledSelect name={name} id={id} value={value} onChange={onChange}>
         <option value="0">Select...</option>
-        <option value="1">Jewellery</option>
-        <option value="2">Collectibles</option>
-        <option value="3">Musical Instruments</option>
-        <option value="4">Sports Equipment</option>
-        <option value="5">Tools</option>
+        {categoryIds.map(value => {
+          return (
+            <option key={value} value={value}>
+              {category[value].name}
+            </option>
+          );
+        })}
       </StyledSelect>
     </Wrapper>
   );
-}
+};
 export default LabelledSelectField;
