@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
-
 import PropTypes from "prop-types";
 
 import { removeItem, removeAll } from "../actions/contents";
@@ -9,6 +8,7 @@ import { removeItem, removeAll } from "../actions/contents";
 import StartMessage from "./start_message";
 import CategoryTitle from "./category_title";
 import Item from "./item";
+
 const CategoryWrapper = styled.div`
   margin-bottom: 20px;
 `;

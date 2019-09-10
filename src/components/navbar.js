@@ -33,12 +33,14 @@ const Login = styled.div`
   height: 40px;
   margin-right: 15px;
 `;
-function NavBar(props) {
+
+const NavBar = () => {
   return (
     <Wrapper>
       <Logo />
       <Login />
     </Wrapper>
   );
-}
+};
+
 export default NavBar;

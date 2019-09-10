@@ -32,23 +32,23 @@ const Button = styled.button`
   }
   color: red;
 `;
-function Item(props) {
+const Item = ({ name, amount, itemId, handleRemove }) => {
   return (
     <Wrapper>
-      <Name>{props.name}</Name>{" "}
+      <Name>{name}</Name>{" "}
       <Amount>
-        <Currency value={props.amount} />
+        <Currency value={amount} />
       </Amount>
       <Button
         name="remove-btn"
         id="remove-btn"
-        data-id={props.itemId}
-        onClick={props.handleRemove}
+        data-id={itemId}
+        onClick={handleRemove}
       >
         Remove
       </Button>
     </Wrapper>
   );
-}
+};
 
 export default Item;

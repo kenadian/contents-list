@@ -7,8 +7,6 @@ import Currency from "./components/currency";
 import NavBar from "./components/navbar";
 
 const Total = props => {
-  // if (props.total > 0) {
-
   return (
     <TotalContainer>
       Total Contents
@@ -17,9 +15,8 @@ const Total = props => {
       </div>
     </TotalContainer>
   );
-  // }
-  // return null;
 };
+
 const TotalContainer = styled.div`
   @media (device-width: 411px) and (device-height: 731px) {
     display: flex;
@@ -33,6 +30,7 @@ const TotalContainer = styled.div`
     align-items: flex-end;
   }
 `;
+
 const Wrapper = styled.div`
   @media (device-width: 411px) and (device-height: 731px) {
     overflow-y: scroll;
@@ -45,6 +43,7 @@ const Wrapper = styled.div`
   height: 100%;
   padding-bottom: 50px;
 `;
+
 const TitleWrapper = styled.div`
   @media (device-width: 411px) and (device-height: 731px) {
     align-items: center;
@@ -63,6 +62,7 @@ const TitleWrapper = styled.div`
   background-color: white;
   z-index: 99;
 `;
+
 const Title = styled.div`
   font-size: 2rem;
   font-weight: bold;
@@ -111,9 +111,11 @@ class App extends Component {
     );
   }
 }
+
 function mapStateToProps(state) {
   return {
     total: state.content.total
   };
 }
+
 export default connect(mapStateToProps)(App);

@@ -26,18 +26,18 @@ const Name = styled.div`
   color: #5cba47;
 `;
 
-function CategoryTitle(props) {
+function CategoryTitle({ name, total, dataCategoryId, handleRemoveAll }) {
   return (
     <Wrapper>
-      <Name>{props.name}</Name>
+      <Name>{name}</Name>
       <div>
-        <Currency value={props.total} />
+        <Currency value={total} />
         <Button
           //todo get this style into this button
           // create another button
           style={{ width: "100%", textAlign: "left" }}
-          dataid={props.dataCategoryId}
-          onClick={props.handleRemoveAll}
+          dataid={dataCategoryId}
+          onClick={handleRemoveAll}
         >
           Remove all
         </Button>

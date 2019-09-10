@@ -5,7 +5,7 @@
  * @param {value:Number, [currencySymbol:String | default "$"]} { value, currencySymbol = "$" }
  * @returns String
  */
-export default function Currency({ value, currencySymbol = "$" }) {
+const Currency = ({ value, currencySymbol = "$" }) => {
   //Add thousand separators and currency symbol
   return (
     currencySymbol +
@@ -14,4 +14,5 @@ export default function Currency({ value, currencySymbol = "$" }) {
       maximumFractionDigits: 0
     })
   );
-}
+};
+export default Currency;

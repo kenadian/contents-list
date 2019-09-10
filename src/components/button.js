@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -10,21 +10,17 @@ const StyledButton = styled.button`
   border: none;
 `;
 
-class Button extends Component {
-  render() {
-    const { dataid, onClick, name, id, primary } = this.props;
-
-    return (
-      <StyledButton
-        name={name}
-        id={id}
-        data-id={dataid}
-        onClick={onClick}
-        primary={primary}
-      >
-        {this.props.children}
-      </StyledButton>
-    );
-  }
-}
+const Button = ({ dataid, onClick, name, id, primary, children }) => {
+  return (
+    <StyledButton
+      name={name}
+      id={id}
+      data-id={dataid}
+      onClick={onClick}
+      primary={primary}
+    >
+      {children}
+    </StyledButton>
+  );
+};
 export default Button;
