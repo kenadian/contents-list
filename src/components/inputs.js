@@ -85,6 +85,7 @@ class Inputs extends Component {
           order="2"
           value={this.state.categoryId}
           onChange={this.handleInputChange}
+          category={this.props.category}
         >
           Category
         </LabelledSelectField>
@@ -109,11 +110,15 @@ class Inputs extends Component {
 
 Inputs.propTypes = {
   addItem: PropTypes.func,
-  total: PropTypes.number
+  total: PropTypes.number,
+  category: PropTypes.object
 };
 
 function mapStateToProps(state) {
-  return { total: state.total };
+  return {
+    total: state.total,
+    category: state.content.entities.category.byId
+  };
 }
 
 export default connect(
